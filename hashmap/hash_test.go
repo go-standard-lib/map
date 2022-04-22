@@ -29,3 +29,11 @@ func TestSize(t *testing.T) {
 		t.Fatal("Expected", expectedSize, "but got", actualSize)
 	}
 }
+
+func TestIsEmpty(t *testing.T) {
+	h := New[string, string]()
+
+	if !h.IsEmpty() {
+		t.Fatal("Expected hash map to be empty")
+	}
+}

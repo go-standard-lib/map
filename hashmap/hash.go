@@ -1,13 +1,5 @@
 package hashmap
 
-type HashMap[K comparable, V any] interface {
-	Put(key K, value V)
-
-	Get(key K) V
-
-	Size() int
-}
-
 type hashMap[K comparable, V any] struct {
 	hash *map[K]V
 }
@@ -28,4 +20,8 @@ func (h hashMap[K, V]) Get(key K) V {
 
 func (h hashMap[K, V]) Size() int {
 	return len(*h.hash)
+}
+
+func (h hashMap[K, V]) IsEmpty() bool {
+	return len(*h.hash) == 0
 }
