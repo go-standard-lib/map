@@ -1,4 +1,4 @@
-package map
+package standardmap
 
 type Map[K comparable, V any] interface {
 	Put(key K, value V)
@@ -8,6 +8,6 @@ type Map[K comparable, V any] interface {
 	Size() int
 
 	Contains(key K) bool
-	
+
 	IsEmpty() bool
 }
