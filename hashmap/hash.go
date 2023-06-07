@@ -41,7 +41,7 @@ func (h HashMap[K, V]) ToMap() map[K]V {
 
 func (h HashMap[K, V]) Keys() []K {
 	array := []K{}
-	for k, _ := range *h.hash {
+	for k := range *h.hash {
 		array = append(array, k)
 	}
 	return array
