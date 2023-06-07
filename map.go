@@ -1,4 +1,4 @@
-package standardmap
+package gomap
 
 type Map[K comparable, V any] interface {
 	Put(key K, value V)
