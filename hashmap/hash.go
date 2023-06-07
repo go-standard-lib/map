@@ -18,6 +18,11 @@ func (h hashMap[K, V]) Get(key K) V {
 	return (*h.hash)[key]
 }
 
+func (h hashMap[K, V]) Contains(key K) bool {
+	_, ok := (*h.hash)[key]
+	return ok
+}
+
 func (h hashMap[K, V]) Size() int {
 	return len(*h.hash)
 }

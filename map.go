@@ -7,5 +7,7 @@ type Map[K comparable, V any] interface {
 
 	Size() int
 
+	Contains(key K) bool
+	
 	IsEmpty() bool
 }
