@@ -12,4 +12,8 @@ type Map[K comparable, V any] interface {
 	IsEmpty() bool
 
 	Remove(key K)
+
+	ToArray() []V
+
+	ToMap() map[K]V
 }

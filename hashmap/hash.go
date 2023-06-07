@@ -31,6 +31,18 @@ func (h HashMap[K, V]) IsEmpty() bool {
 	return len(*h.hash) == 0
 }
 
-func (s HashMap[K, V]) Remove(key K) {
-	delete(*s.hash, key)
+func (h HashMap[K, V]) Remove(key K) {
+	delete(*h.hash, key)
+}
+
+func (h HashMap[K, V]) ToMap() map[K]V {
+	return *h.hash
+}
+
+func (h HashMap[K, V]) ToArray() []V {
+	array := []V{}
+	for _, v := range *h.hash {
+		array = append(array, v)
+	}
+	return array
 }

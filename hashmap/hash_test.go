@@ -59,3 +59,39 @@ func TestRemove(t *testing.T) {
 		t.Fatal("Expected hash map not contain key")
 	}
 }
+
+func TestToMap(t *testing.T) {
+	h := New[string, string]()
+
+	h.Put("test", "test")
+
+	m := h.ToMap()
+
+	_, ok := m["test"]
+	if !ok {
+		t.Fatal("Expected map to contain a key, but didn't find it")
+	}
+}
+
+func TestToArray(t *testing.T) {
+	h := New[string, string]()
+
+	testVal := "test"
+	h.Put("test", testVal)
+
+	h.Put("test2", testVal)
+
+	m := h.ToArray()
+
+	l := len(m)
+
+	if l != 2 {
+		t.Fatal("Expected length to be 2 but was", l)
+	}
+
+	for _, v := range m {
+		if v != testVal {
+			t.Fatal("Expected value to be", testVal)
+		}
+	}
+}
