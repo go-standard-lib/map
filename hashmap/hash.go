@@ -39,7 +39,15 @@ func (h HashMap[K, V]) ToMap() map[K]V {
 	return *h.hash
 }
 
-func (h HashMap[K, V]) ToArray() []V {
+func (h HashMap[K, V]) Keys() []K {
+	array := []K{}
+	for k, _ := range *h.hash {
+		array = append(array, k)
+	}
+	return array
+}
+
+func (h HashMap[K, V]) Values() []V {
 	array := []V{}
 	for _, v := range *h.hash {
 		array = append(array, v)

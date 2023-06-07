@@ -13,7 +13,9 @@ type Map[K comparable, V any] interface {
 
 	Remove(key K)
 
-	ToArray() []V
+	Values() []V
+
+	Keys() []K
 
 	ToMap() map[K]V
 }

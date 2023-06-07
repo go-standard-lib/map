@@ -73,15 +73,38 @@ func TestToMap(t *testing.T) {
 	}
 }
 
-func TestToArray(t *testing.T) {
+func TestValues(t *testing.T) {
 	h := New[string, string]()
 
 	testVal := "test"
-	h.Put("test", testVal)
 
+	h.Put("test", testVal)
 	h.Put("test2", testVal)
 
-	m := h.ToArray()
+	m := h.Values()
+
+	l := len(m)
+
+	if l != 2 {
+		t.Fatal("Expected length to be 2 but was", l)
+	}
+
+	for _, v := range m {
+		if v != testVal {
+			t.Fatal("Expected value to be", testVal)
+		}
+	}
+}
+
+func TestKeys(t *testing.T) {
+	h := New[string, string]()
+
+	testVal := "test"
+
+	h.Put("test", testVal)
+	h.Put("test2", testVal)
+
+	m := h.Keys()
 
 	l := len(m)
 
