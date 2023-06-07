@@ -1,3 +1,3 @@
-module github.com/go-lang-utils/map
+module github.com/go-standard-lib/map
 
 go 1.18
