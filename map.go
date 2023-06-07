@@ -10,4 +10,6 @@ type Map[K comparable, V any] interface {
 	Contains(key K) bool
 
 	IsEmpty() bool
+
+	Remove(key K)
 }

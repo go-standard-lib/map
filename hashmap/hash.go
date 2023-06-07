@@ -30,3 +30,7 @@ func (h HashMap[K, V]) Size() int {
 func (h HashMap[K, V]) IsEmpty() bool {
 	return len(*h.hash) == 0
 }
+
+func (s HashMap[K, V]) Remove(key K) {
+	delete(*s.hash, key)
+}

@@ -37,3 +37,25 @@ func TestIsEmpty(t *testing.T) {
 		t.Fatal("Expected hash map to be empty")
 	}
 }
+
+func TestContains(t *testing.T) {
+	h := New[string, string]()
+
+	h.Put("test", "test")
+
+	if !h.Contains("test") {
+		t.Fatal("Expected hash map to contain key")
+	}
+}
+
+func TestRemove(t *testing.T) {
+	h := New[string, string]()
+
+	h.Put("test", "test")
+
+	h.Remove("test")
+
+	if h.Contains("test") {
+		t.Fatal("Expected hash map not contain key")
+	}
+}
